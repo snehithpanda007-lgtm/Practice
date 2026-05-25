@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FlowEx</title>
+  </head>
+  <body>
+    <script>
+      // age checker
+      let age = 30;
+
+      function isAdult(age){
+        (age >= 18)?console.log("You are an adult."):
+        console.log("You are not an adult.");
+      }
+
+      isAdult(age);
+
+      // calculator
+      let a=10,
+          b=20;
+      
+      function sum(x,y){
+        return x+y;
+      }
+      console.log("Sum: " + sum(a,b));
+
+      function subtract(x,y){
+        return x-y;
+      }
+      console.log("Difference: " + subtract(a,b));
+
+      function multiply(x,y){
+        return x*y;
+      }
+      console.log("Product: " + multiply(a,b));
+
+      function divide(x,y){
+        if(y !== 0){
+          return x/y;
+        } else {
+          console.log("Cannot divide by zero.");
+          return null;
+        }
+      }
+      console.log("Quotient: " + divide(a,b));
+
+      // grading system
+      let score = 85;
+      function grade(score){
+        if(score >= 90){
+          return "A";
+        } else if(score >= 80){
+          return "B";
+        } else if(score >= 70){
+          return "C";
+        } else if(score >= 60){
+          return "D";
+        } else {
+          return "F";
+        }
+      }
+      console.log("Grade: " + grade(score));
+    </script>
+  </body>
+</html>
