@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Array Mini Projects</title>
+</head>
+<body>
+  <h1>Array Mini Projects</h1>
+
+  <p id="greeting"></p>
+
+  <button onclick="startGame()">
+    Start Number Guessing Game
+  </button>
+
+  <script>
+    // Random name picker
+    let names = ["Alice", "Bob", "Charlie", "David", "Eve"];
+
+    let randomIndex = Math.floor(Math.random() * names.length);
+    let name = names[randomIndex];
+
+    // Show greeting
+    document.getElementById("greeting").innerText =
+      "Hi, " + name + "!";
+
+    // Number guessing game
+    let randomNumber = Math.floor(Math.random() * 100) + 1;
+
+    function startGame() {
+      let guess;
+
+      while (guess !== randomNumber) {
+
+        guess = Number(
+          prompt(name + ", guess a number between 1 and 100:")
+        );
+
+        if (guess > randomNumber) {
+          alert("Too high!");
+        }
+        else if (guess < randomNumber) {
+          alert("Too low!");
+        }
+        else {
+          alert("Congratulations! You guessed the number!");
+        }
+      }
+    }
+  </script>
+</body>
+</html>

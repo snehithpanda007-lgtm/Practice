@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Shopping List</title>
+  </head>
+  <body>
+    <h1>My Shopping List</h1>
+    <p>Click on an item to add it to your cart.</p>
+    <ul></ul>
+    <button id="view-cart">View Cart</button>
+  </body>
+  <script>
+    const shoppingList = [
+      "Milk",
+      "Bread",
+      "Eggs",
+      "Cheese",
+      "Fruits",
+      "Vegetables"
+    ];
+
+    const ul = document.createElement("ul");
+    shoppingList.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      ul.appendChild(li);
+    });
+    document.body.appendChild(ul);
+
+    let cart = [];
+    ul.addEventListener("click", event => {
+      if (event.target.tagName === "LI") {
+        const item = event.target.textContent;
+        if (!cart.includes(item)) {
+          cart.push(item);
+          alert(`${item} added to cart!`);
+        } else {
+          alert(`${item} is already in the cart!`);
+        }
+      }
+    });
+
+    document.getElementById("view-cart").addEventListener("click", () => {
+      alert("Items in your cart:\n" + cart.join("\n"));
+    });
+  </script>

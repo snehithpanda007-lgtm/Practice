@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Arrays and Loops</title>
+  </head>
+  <body>
+
+  </body>
+  <script>
+    // Example of an array
+    let fruits = ["Apple", "Green Grape", "Black Grape", "Blueberry", "Cherry"];
+
+    // Looping through the array using a for loop
+    for (let i = 0; i < fruits.length; i++) {
+      console.log(fruits[i]);
+    }
+
+    // Looping through the array using a for...of loop
+    for (let fruit of fruits) {
+      console.log(fruit);
+    }
+
+    // Array of numbers
+    let numbers = [1, 2, 3, 4, 5];
+  
+    // Looping through the array and calculating the sum
+    let sum = 0;
+    for (let number of numbers) {
+      sum += number;
+    }
+    console.log("Sum:", sum);
+      
+    // Array methods
+    fruits.push("Strawberry"); // Adding an element to the end of the array
+    console.log(fruits);
+
+    fruits.pop(); // Removing the last element from the array
+    console.log(fruits);
+
+    let availableFruits = fruits.map(f => f); // Creating a new array with the same elements
+    console.log(availableFruits);
+
+    for(fruit of fruits.filter(f => f.includes("Grape"))) {
+      console.log(fruit);
+    }
+
+    fruits.forEach(fruit => console.log(fruit)); // Looping through the array using forEach method
+  </script>
+</html>
