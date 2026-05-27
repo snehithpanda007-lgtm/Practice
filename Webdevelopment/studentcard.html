@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Student Card</title>
+</head>
+
+<body style="font-family: Arial, sans-serif; background-color: #000000; color:#ffffff; padding: 20px;">
+</body>
+
+<script>
+  // Constructor function
+  function StudentCard(school, student, math, english, coding) {
+    this.school = school;
+    this.name = student;
+    this.math = math;
+    this.english = english;
+    this.coding = coding;
+  }
+
+  // Create student object
+  const student1 = new StudentCard(
+    "XYZ University",
+    "John Doe",
+    85,
+    90,
+    80
+  );
+
+  // Function to display student card
+  function createStudentCard(student) {
+
+    const studentCard = document.createElement("div");
+
+    // Check pass status
+    const passed =
+      student.math >= 60 &&
+      student.english >= 60 &&
+      student.coding >= 60;
+
+    // Calculate average
+    const average =
+      (student.math + student.english + student.coding) / 3;
+
+    // Determine grade
+    let grade;
+
+    if (!passed) {
+      grade = "F";
+    } else if (average >= 90) {
+      grade = "A";
+    } else if (average >= 80) {
+      grade = "B";
+    } else if (average >= 70) {
+      grade = "C";
+    } else if (average >= 60) {
+      grade = "D";
+    } else {
+      grade = "E";
+    }
+
+    // Card content
+    studentCard.innerHTML = `
+      <h2>${student.school} Report Card</h2>
+      <p>Name: ${student.name}</p>
+      <p>Math: ${student.math}</p>
+      <p>English: ${student.english}</p>
+      <p>Coding: ${student.coding}</p>
+      <p>Average: ${average.toFixed(0)}</p>
+      <p>Passed: ${passed ? "Yes" : "No"}</p>
+      <p>Grade: ${grade}</p>
+    `;
+
+    // Styling
+    studentCard.style.border = "1px solid white";
+    studentCard.style.padding = "15px";
+    studentCard.style.width = "300px";
+    studentCard.style.borderRadius = "10px";
+
+    document.body.appendChild(studentCard);
+  }
+
+  createStudentCard(student1);
+</script>
+</html>
