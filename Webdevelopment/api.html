@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    h1,h2,h3{
+      border-bottom: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px;
+    }
+    button{
+      border: none;
+      border-radius: 10px;
+      padding: 10px;
+      margin: 10px;
+      cursor: pointer;
+    }
+    button:hover{
+      background-color: #ccc;
+    }
+    .card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px;
+    }
+  </style>
+    <title>API Practice</title>
+</head>
+<body>
+
+    <h1>Understanding APIs</h1>
+
+    <h2>Users</h2>
+    <button id="getUsers">Get Users</button> 
+    <div id="users"></div>
+
+    <h2>Posts</h2>
+    <button id="getPosts">Get Posts</button>     
+    <div id="posts"></div>
+
+
+    <h2>Comments</h2>
+    <button id="getComments">Get Comments</button>     
+    <div id="comments"></div>
+
+
+    <script>
+      const divUsers = document.getElementById('users')
+      const divPosts = document.getElementById('posts')
+      const divComments = document.getElementById('comments')
+
+      const btnGetUsers = document.getElementById('getUsers')
+      const btnGetPosts = document.getElementById('getPosts')
+      const btnGetComments = document.getElementById('getComments')
+
+      btnGetUsers.addEventListener('click',() => {
+        fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response => response.json())
+        .then(users => {
+          users.slice(0,5).forEach(user => {
+            divUsers.innerHTML += `
+            <div class="card">
+            <h3>${user.name}</h3>
+            <p>${user.email}</p>
+            </div>`
+          })
+        })
+      },{once:true})
+
+      btnGetPosts.addEventListener('click',() => {
+        fetch('https://jsonplaceholder.typicode.com/posts')
+        .then(response => response.json())
+        .then(posts => {
+          posts.slice(0,5).forEach(post => {
+            divPosts.innerHTML += `
+            <div class="card">
+            <h3>${post.title}</h3>
+            <p>${post.body}</p>
+            </div>`
+          })
+        })
+      },{once:true})
+
+      btnGetComments.addEventListener('click',() => {
+        fetch('https://jsonplaceholder.typicode.com/comments')
+        .then(response => response.json())
+        .then(comments => {
+          comments.slice(0,5).forEach(comment => {
+            divComments.innerHTML += `
+            <div class="card">
+            <h3>${comment.email}</h3>
+            <p>${comment.body}</p>
+            </div>`
+          })
+        })
+      },{once:true})
+    </script>
+
+</body>
+</html>
